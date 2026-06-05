@@ -57,14 +57,180 @@ A álgebra usa letras (variáveis) para representar números desconhecidos ou qu
           }
         ]
       },
-      { id: '1.3', title: '1.3. Geometria', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.4', title: '1.4. Trigonometria', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.5', title: '1.5. Álgebra Vetorial', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.6', title: '1.6. Álgebra Linear', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.7', title: '1.7. Cálculo Diferencial', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.8', title: '1.8. Cálculo Integral', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.9', title: '1.9. Equações Diferenciais', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '1.10', title: '1.10. Probabilidade e Estatística', content: 'Conteúdo em desenvolvimento...', exercises: [] },
+      {
+        id: '1.3',
+        title: '1.3. Geometria',
+        content: `
+A geometria é o estudo das formas, tamanhos, posições e dimensões das coisas no espaço. Ela nos ajuda a entender desde a planta de uma casa até o movimento dos planetas.
+
+**Geometria Plana:** Lida com figuras "achatadas" em uma superfície 2D (como uma folha de papel). Exemplos: quadrados, triângulos e círculos.
+- **Área:** É o espaço dentro de uma figura plana. Imagine quanto de tinta você precisaria para pintar o chão de uma sala.
+
+**Geometria Espacial:** Adiciona a terceira dimensão (profundidade). Agora temos objetos 3D, como cubos, esferas e pirâmides.
+- **Volume:** É o espaço que um objeto 3D ocupa. Imagine quanta água cabe dentro de uma caixa d'água.
+
+**Coordenadas Cartesianas:** Um sistema criado por René Descartes que usa dois eixos cruzados (X horizontal, Y vertical) para encontrar a localização exata de qualquer ponto, como no jogo "Batalha Naval".
+        `,
+        exercises: [
+          {
+            id: 'ex-1.3.1',
+            question: 'Se um quarto quadrado tem 4 metros de lado, qual é a área do piso?',
+            options: ['8 metros quadrados', '16 metros quadrados', '12 metros quadrados', '4 metros quadrados'],
+            correctAnswerIndex: 1,
+            explanation: 'A área de um quadrado é o lado multiplicado por ele mesmo (Lado × Lado). Portanto, 4 × 4 = 16 metros quadrados.'
+          }
+        ]
+      },
+      {
+        id: '1.4',
+        title: '1.4. Trigonometria',
+        content: `
+A trigonometria estuda a relação entre os lados e os ângulos dos triângulos, focando especialmente nos triângulos que têm um ângulo reto de 90° (triângulos retângulos).
+
+Imagine que você está na sombra de uma árvore, e quer saber a altura dela. A trigonometria te dá ferramentas matemáticas mágicas para medir isso!
+
+**Seno (sen):** A relação entre o lado *oposto* ao ângulo e o lado mais longo do triângulo (hipotenusa).
+**Cosseno (cos):** A relação entre o lado *vizinho* (adjacente) ao ângulo e a hipotenusa.
+**Tangente (tan):** A relação entre o lado oposto e o lado vizinho.
+
+Essas funções são vitais em tudo: desde construir pontes até criar gráficos 3D em jogos de videogame e prever ondas no mar.
+        `,
+        exercises: [
+          {
+            id: 'ex-1.4.1',
+            question: 'Em um triângulo retângulo, a relação entre o cateto oposto e a hipotenusa é chamada de:',
+            options: ['Cosseno', 'Tangente', 'Seno', 'Vetor'],
+            correctAnswerIndex: 2,
+            explanation: 'Exato! O Seno (sen) é a razão matemática entre a medida do cateto oposto a um ângulo e a medida da hipotenusa.'
+          }
+        ]
+      },
+      {
+        id: '1.5',
+        title: '1.5. Álgebra Vetorial',
+        content: `
+Esqueça os números comuns por um instante. Vetores não são apenas quantidades, eles representam **"quanto"** e para **"onde"**.
+
+**Vetores:** Ferramentas matemáticas com *Módulo* (tamanho/força) e *Direção/Sentido* (para onde aponta). Pode usar vetores para mapear como o vento sopra numa cidade (velocidade + direção do vento).
+
+**Soma Vetorial:** Quando você empurra uma caixa para frente, e seu amigo empurra para a direita, a caixa se move na diagonal. O caminho diagonal é a soma dos vetores.
+**Produto Escalar:** Multiplica dois vetores, mas o resultado será um número simples (um escalar), nos dizendo o quão alinhados eles estão.
+**Produto Vetorial:** Multiplica dois vetores no espaço 3D, criando um terceiro vetor inteiramente novo que sai rasgando perfeitamente a 90 graus (ortogonal) em relação aos outros dois.
+        `,
+        exercises: [
+          {
+            id: 'ex-1.5.1',
+            question: 'O que diferencia um "Vetor" de um número normal (escalar)?',
+            options: ['O vetor não tem valor, apenas sentido.', 'O vetor possui módulo (tamanho) e direção/sentido.', 'O vetor só existe em 3D.', 'O vetor é sempre positivo.'],
+            correctAnswerIndex: 1,
+            explanation: 'Correto! Diferente de um número comum, o vetor aponta para alguma direção.'
+          }
+        ]
+      },
+      {
+        id: '1.6',
+        title: '1.6. Álgebra Linear',
+        content: `
+Se você ama como a física moderna descreve buracos negros ou como a IA gera imagens, você deve agradecer à Álgebra Linear! Ela é a matemática do "espaço múltiplo".
+
+**Espaços Vetoriais:** Universos matemáticos flexíveis onde vetores vivem e podem ser escalados e somados livremente.
+**Matrizes:** Grandes "tabelas" numéricas. São as engrenagens principais na computação e física para transformar e esticar o espaço 3D.
+**Determinantes:** Um número único mágico extraído de uma matriz que mede como o espaço original foi esticado, espremido ou achatado durante uma transformação.
+**Autovalores e Autovetores (Eigenvectors):** Em um mundo caótico giratório (matrizes), os autovetores são aqueles vetores teimosos que permanecem perfeitamente na mesma direção, mesmo que sejam apenas esticados (seu "autovalor").
+        `,
+        exercises: [
+          {
+            id: 'ex-1.6.1',
+            question: 'O que descreve melhor uma Matriz na Álgebra Linear?',
+            options: ['Um único número complexo.', 'Uma equação diferencial.', 'Uma estrutura tabular numérica usada para transformações do espaço.', 'Um vetor de tamanho 1.'],
+            correctAnswerIndex: 2,
+            explanation: 'Uma matriz atua como uma tabela de números que transforma ou mapeia o espaço.'
+          }
+        ]
+      },
+      {
+        id: '1.7',
+        title: '1.7. Cálculo Diferencial',
+        content: `
+Criado independentemente por Newton e Leibniz, o cálculo mudou a humanidade. É a pura matemática da **mudança contínua**.
+
+**Taxas de Variação:** Quando dirigimos à noite, quão rápido nossa posição está mudando examente neste milissegundo? O cálculo responde isso.
+**Limites:** A base do cálculo. Permite examinar o que acontece com uma função ou valor à medida que ele se aproxima microscopicamente perto de algo, sem nunca necessariamente tocá-lo.
+**Derivadas:** É o coração do cálculo. A derivada de qualquer curva nos dá uma nova curva que informa quão íngreme (sua taxa de variação ou "velocidade") a curva original está crescendo em todos os pontos. 
+**Máximos e Mínimos:** Ferramenta da derivada que acha perfeitamente o pico mais alto (lucro máximo) ou mais fundo (gasto mínimo) de qualquer gráfico, simplesmente encontrando onde a subida repentinamente é zero.
+        `,
+        exercises: [
+          {
+            id: 'ex-1.7.1',
+            question: 'Se a função original representa a posição de um carro ao longo do tempo, o que a sua Derivada vai representar?',
+            options: ['A aceleração do carro.', 'A velocidade do carro.', 'O tamanho do carro.', 'A cor do carro.'],
+            correctAnswerIndex: 1,
+            explanation: 'A derivada da posição é a velocidade do carro (a taxa de mudança da posição no tempo).'
+          }
+        ]
+      },
+      {
+        id: '1.8',
+        title: '1.8. Cálculo Integral',
+        content: `
+Se o cálculo diferencial desmonta as curvas encontrando suas inclinações de mudança (Derivadas), o cálculo Integral repara a curva, **acumulando os pedacinhos.**
+
+**Integrais:** É matematicamente a soma de infinitas (e minúsculas) fatias coladas umas nas outras. 
+**Áreas sob curvas:** Quando você observa o gráfico da velocidade do seu carro ao longo do tempo (que flutua num zigue-zague contínuo), se você "Pintar" ou calcular toda a área abaixo dessa curva estranha, você descobre magicamente a incrível distância milimétrica final que o carro andou.
+        `,
+        exercises: [
+          {
+            id: 'ex-1.8.1',
+            question: 'Se a Derivada separa para achar a taxa de variação de um processo, a Integral serve fundamentalmente para:',
+            options: ['Separar variáveis.', 'Somar fatias minúsculas acumuladas sob uma região inteira.', 'Achar a inclinação da reta tangente.', 'Dividir fatias ao meio.'],
+            correctAnswerIndex: 1,
+            explanation: 'Correto! A Integral pega infinitas fatias infinitesimais e as soma, resultando na acumulação final desejada (como cálculo de áreas).'
+          }
+        ]
+      },
+      {
+        id: '1.9',
+        title: '1.9. Equações Diferenciais',
+        content: `
+Onde a física brilha — essa é a linguagem na qual as próprias leis majestosas da natureza são originalmente escritas!
+
+Uma equação comum resolve que "x = 4", mas as **equações diferenciais resolvem "taxas em que funções variam" em relação à elas mesmas**. 
+
+**Por exemplo:** Num copo de café quente numa sala fria: "A taxa que o café perde calor deve ser proporcional em todos os momentos exatamente ao calor atual do café!". Resolver isso garante a fórmula de esfriamento para qualquer instante (Equações Ordinárias).
+
+**Sistemas Dinâmicos:** Sistemas como pêndulos, presas/predadores, ou oscilações de estrelas de nêutrons; onde infinitas variáveis de "taxas" trocam forças e comportamentos em fluidas interligações contínuas no tempo!
+        `,
+        exercises: [
+          {
+            id: 'ex-1.9.1',
+            question: 'Enquanto uma equação algébrica busca um número (ex: x=2), a solução de fato para uma verdadeira Equação Diferencial é:',
+            options: ['Um único número negativo.', 'Uma matriz gigante.', 'Uma função inteira.', 'Um vetor numérico.'],
+            correctAnswerIndex: 2,
+            explanation: 'A solução para uma equação diferencial não é um número, e sim uma função que descreve e modela o comportamento procurado.'
+          }
+        ]
+      },
+      {
+        id: '1.10',
+        title: '1.10. Probabilidade e Estatística',
+        content: `
+Na natureza nada é 100% perfeitamente visível — muito menos o lado quântico microscópico. A estatística é o escudo de um físico.
+
+**Probabilidade:** A chance matemática natural que lida especificamente entre as apostas de chance nua (Como moedas caindo em coroas).
+**Distribuições:** São a impressão digital e os padrões montanhosos da chance gráfica nas quais todos os valores de probabilidade descansam, famosa "curva do sino" (curva de Gauss).
+**Médias e Variâncias:** As médias descrevem elegantemente todo o comportamento de qual é o centro e equilíbrio de algo geral. A **Variância** é o "caos em volta do centro", quanto os dados dançam rebeldes em toda distância longe do núcleo perfeito.
+**Inferência Estatística:** Quando é doloroso mapear literalmente tudo, coletamos apenas um pingo seguro de "amostras" e conseguimos magicamente reconstruir previsões concretas e massivas sobre os modelos inteiros!
+        `,
+        exercises: [
+          {
+            id: 'ex-1.10.1',
+            question: 'Em termos simples, se a Média nos mostra o "centro" matemático típico dos dados, o que é que a "Variância" mostra para o cenário inteiro?',
+            options: ['Mostra quem ficou em primeiro lugar.', 'Mostra o quão espalhados e distantes os dados estão da média.', 'O erro computacional na máquina.', 'O valor de pico da estatística em si.'],
+            correctAnswerIndex: 1,
+            explanation: 'Exatamente! A Variância mede justamente a dispersão estendida de todos os resultados se afastando da linha do centro.'
+          }
+        ]
+      },
     ]
   },
   {
@@ -115,8 +281,49 @@ A cinemática é o estudo do **como** as coisas se movem, sem se importar com o 
           }
         ]
       },
-      { id: '2.3', title: '2.3. Dinâmica Newtoniana', content: 'Conteúdo em desenvolvimento...', exercises: [] },
-      { id: '2.4', title: '2.4. Trabalho e Energia', content: 'Conteúdo em desenvolvimento...', exercises: [] },
+      {
+        id: '2.3',
+        title: '2.3. Dinâmica Newtoniana',
+        content: `
+Se a cinemática descreve a dança, a dinâmica explica a música por trás dela. Newton formulou três leis imortais que controlam tudo o que tocamos.
+
+**1ª Lei de Newton (Inércia):** O universo é preguiçoso. Um objeto parado prefere continuar parado. Um objeto em movimento prefere continuar em linha reta para sempre. A única forma de mudar isso é usando uma força.
+**2ª Lei de Newton (Força = Massa × Aceleração):** Se você quer que algo acelere, aplique uma Força ($F = m a$). Quanto mais pesado (massa) for um caminhão, mais força o motor precisará fazer para ele arrancar.
+**3ª Lei de Newton (Ação e Reação):** Quando você dá um soco na parede, a parede também dá um soco idêntico em sua mão. Não existe tocar o universo sem que ele te toque de volta com exata mesma força.
+
+**Conservação do Momento:** O "peso" de um movimento nunca se perde, ele apenas passa adiante. Em uma colisão de sinuca, a velocidade da primeira bola é transferida precisamente para as outras.
+        `,
+        exercises: [
+          {
+            id: 'ex-2.3.1',
+            question: 'Segundo a Terceira Lei de Newton, se a Terra puxa o seu corpo para baixo com a força da gravidade...',
+            options: ['Você não possui força própria.', 'Você também levita lentamente.', 'Seu corpo puxa a Terra para cima com exatamente a mesma força.', 'O ar empurra você para baixo.'],
+            correctAnswerIndex: 2,
+            explanation: 'Correto! A atração é mútua. Você puxa todo o planeta Terra em sua direção com a exata mesma força que ele usa para te puxar!'
+          }
+        ]
+      },
+      {
+        id: '2.4',
+        title: '2.4. Trabalho e Energia',
+        content: `
+A Força é a causa mecânica, mas a "Energia" é a verdadeira moeda cósmica invisível que dita se algo sequer tem permissão para acontecer. 
+
+**Trabalho:** Na física, se você empurrar uma parede o dia todo e ela não se mover, você não realizou Nenhum Trabalho. O "Trabalho" mede a Força que efetivamente moveu algo por certa Distância.
+**Energia Cinética ($\frac{1}{2}mv^2$):** A pura energia do movimento agressivo! Quanto mais rápida está uma bala, mais devastadora é essa energia que carrega.
+**Energia Potencial:** A energia fantasma armazenada! Uma rocha parada na beira do penhasco está cheia de energia potencial escondida. Se ela cair, sua altura se transforma instantaneamente na perigosa Energia Cinética!
+**Conservação da Energia:** A regra suprema do Universo: A Energia nunca pode ser destruída e nunca pode aparecer do nada; ela pode apenas mudar sua fantasia (por exemplo, eletricidade virando luz e calor lâmpada).
+        `,
+        exercises: [
+          {
+            id: 'ex-2.4.1',
+            question: 'Quando seguramos um arco e puxamos firmemente a flecha para trás sem soltar, nela existe:',
+            options: ['Termodinâmica gravitacional.', 'Energia Térmica.', 'Energia Cinética.', 'Energia Potencial Elástica.'],
+            correctAnswerIndex: 3,
+            explanation: 'A tensão carrega a flecha com energia que está aguardando (potencial) pela sua liberação no arco!'
+          }
+        ]
+      },
     ]
   },
   {
