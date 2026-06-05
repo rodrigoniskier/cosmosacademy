@@ -1,0 +1,6 @@
+{
+  "name": "Cosmos & Números",
+  "description": "Uma plataforma educacional interativa de matemática e física, do básico ao avançado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
