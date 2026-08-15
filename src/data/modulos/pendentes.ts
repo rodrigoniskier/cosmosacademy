@@ -19,23 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '8',
-    title: '8. Mecânica Quântica',
-    descricao:
-      'A teoria que substitui trajetórias por amplitudes de probabilidade — e o formalismo de operadores que a torna calculável.',
-    subtopics: pendentes([
-      ['8.1', '8.1. Dualidade onda-partícula'],
-      ['8.2', '8.2. Função de onda'],
-      ['8.3', '8.3. Equação de Schrödinger'],
-      ['8.4', '8.4. Operadores'],
-      ['8.5', '8.5. Observáveis'],
-      ['8.6', '8.6. Estados quânticos'],
-      ['8.7', '8.7. Spin'],
-      ['8.8', '8.8. Oscilador harmônico quântico'],
-      ['8.9', '8.9. Teoria de perturbações'],
-    ]),
-  },
-  {
     id: '9',
     title: '9. Teoria Quântica de Campos (TQC)',
     descricao:
