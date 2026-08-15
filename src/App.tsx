@@ -1,75 +1,147 @@
-import React, { useState, useEffect } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import Sidebar from './components/Sidebar';
 import ContentArea from './components/ContentArea';
-import { curriculum } from './data/curriculum';
-import { UserProgress } from './types';
+import { curriculum, estatisticas, porId, primeiroEscrito } from './data/curriculum';
+import type { UserProgress } from './types';
+
+const CHAVE_PROGRESSO = 'cosmos:progresso:v1';
+const CHAVE_ULTIMO = 'cosmos:ultimo-topico:v1';
+
+/**
+ * O progresso vivia só em memória: bastava recarregar a página para o portal
+ * esquecer tudo o que o leitor tinha concluído. Num material de estudo longo
+ * isso não é um detalhe — é o que decide se dá para voltar amanhã.
+ */
+function lerProgresso(): UserProgress {
+  try {
+    const bruto = localStorage.getItem(CHAVE_PROGRESSO);
+    if (!bruto) return {};
+    const dados: unknown = JSON.parse(bruto);
+    if (!dados || typeof dados !== 'object') return {};
+    return dados as UserProgress;
+  } catch {
+    // localStorage pode estar indisponível (modo privado, cota estourada).
+    // Perder o histórico é ruim; derrubar o portal por causa disso é pior.
+    return {};
+  }
+}
+
+function lerUltimoTopico(): string {
+  try {
+    const id = localStorage.getItem(CHAVE_ULTIMO);
+    if (id && porId.has(id)) return id;
+  } catch {
+    /* segue com o padrão */
+  }
+  return primeiroEscrito;
+}
 
 export default function App() {
-  const [selectedSubTopicId, setSelectedSubTopicId] = useState<string>('1.1');
-  const [progress, setProgress] = useState<Record<string, { completed: boolean }>>({});
+  const [selectedSubTopicId, setSelectedSubTopicId] = useState<string>(lerUltimoTopico);
+  const [progress, setProgress] = useState<UserProgress>(lerProgresso);
+  const [menuAberto, setMenuAberto] = useState(false);
 
-  // Flatten the curriculum safely to find subtopics quickly
-  const findSubTopic = (id: string) => {
-    for (const mod of curriculum) {
-      for (const sub of mod.subtopics) {
-        if (sub.id === id) return sub;
-      }
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHAVE_PROGRESSO, JSON.stringify(progress));
+    } catch {
+      /* sem persistência, mas a sessão continua funcionando */
     }
-    return null;
-  };
+  }, [progress]);
 
-  const handleCompleteTopic = () => {
-    setProgress(prev => ({
-      ...prev,
-      [selectedSubTopicId]: { completed: true }
-    }));
-  };
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHAVE_ULTIMO, selectedSubTopicId);
+    } catch {
+      /* idem */
+    }
+  }, [selectedSubTopicId]);
 
-  const currentSubTopic = findSubTopic(selectedSubTopicId);
+  const currentSubTopic = porId.get(selectedSubTopicId);
+
+  const handleCompleteTopic = useCallback(() => {
+    setProgress((prev) =>
+      prev[selectedSubTopicId]?.completed
+        ? prev
+        : { ...prev, [selectedSubTopicId]: { completed: true } },
+    );
+  }, [selectedSubTopicId]);
+
+  const selecionar = useCallback((id: string) => {
+    setSelectedSubTopicId(id);
+    setMenuAberto(false);
+  }, []);
+
+  const concluidos = useMemo(
+    () => Object.values(progress).filter((p) => p?.completed).length,
+    [progress],
+  );
 
   return (
-    <div className="h-screen bg-slate-950 font-sans text-slate-50 antialiased selection:bg-cyan-500/30 p-6 flex flex-col overflow-hidden">
-      <header className="flex justify-between items-center mb-6 shrink-0">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-cyan-500 rounded-lg flex items-center justify-center">
+    <div className="flex h-dvh flex-col bg-slate-950 p-4 font-sans text-slate-50 antialiased selection:bg-cyan-500/30 sm:p-6">
+      <header className="mb-5 flex shrink-0 items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setMenuAberto((v) => !v)}
+            aria-label={menuAberto ? 'Fechar o mapa do conhecimento' : 'Abrir o mapa do conhecimento'}
+            aria-expanded={menuAberto}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-800 bg-slate-900 text-slate-300 md:hidden"
+          >
+            {menuAberto ? <X size={18} /> : <Menu size={18} />}
+          </button>
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-500">
             <span className="text-2xl font-bold text-slate-900">Σ</span>
           </div>
-          <h1 className="text-2xl font-black tracking-tight uppercase">Cosmos<span className="text-cyan-400">Academy</span></h1>
-        </div>
-        <nav className="hidden md:flex gap-6 text-sm font-medium uppercase tracking-widest">
-          <a href="#" className="text-cyan-400 border-b-2 border-cyan-400 pb-1">Aprender</a>
-          <a href="#" className="text-slate-400 hover:text-white">Laboratório</a>
-          <a href="#" className="text-slate-400 hover:text-white">Desafios</a>
-          <a href="#" className="text-slate-400 hover:text-white">Comunidade</a>
-        </nav>
-        <div className="hidden sm:flex items-center gap-4 bg-slate-900 px-4 py-2 rounded-full border border-slate-800">
-          <div className="text-xs text-right">
-            <p className="font-bold uppercase text-slate-400">Nível 14</p>
-            <p className="text-cyan-400">Explorador Quântico</p>
+          <div className="min-w-0">
+            <h1 className="truncate text-lg font-black uppercase tracking-tight sm:text-2xl">
+              Cosmos<span className="text-cyan-400">Academy</span>
+            </h1>
+            <p className="hidden text-[0.7rem] text-slate-500 sm:block">
+              Matemática e física, do básico à cosmologia — com fonte aberta para tudo.
+            </p>
           </div>
-          <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500"></div>
+        </div>
+
+        <div className="shrink-0 rounded-full border border-slate-800 bg-slate-900 px-3 py-2 text-right text-xs sm:px-4">
+          <p className="font-bold uppercase text-slate-400">
+            {concluidos}/{estatisticas.subtopicos}
+          </p>
+          <p className="whitespace-nowrap text-cyan-400">
+            {estatisticas.escritos} escritos
+          </p>
         </div>
       </header>
 
-      <main className="grid grid-cols-12 gap-6 flex-grow min-h-0">
-        <div className="col-span-12 md:col-span-4 lg:col-span-3 min-h-0">
+      <main className="grid min-h-0 flex-grow grid-cols-12 gap-6">
+        <div
+          className={`col-span-12 min-h-0 md:col-span-4 lg:col-span-3 ${
+            menuAberto ? 'block' : 'hidden md:block'
+          }`}
+        >
           <Sidebar
             curriculum={curriculum}
             selectedSubTopicId={selectedSubTopicId}
-            onSelectSubTopic={setSelectedSubTopicId}
+            onSelectSubTopic={selecionar}
             progress={progress}
           />
         </div>
-        <div className="col-span-12 md:col-span-8 lg:col-span-9 min-h-0">
+        <div
+          className={`col-span-12 min-h-0 md:col-span-8 lg:col-span-9 ${
+            menuAberto ? 'hidden md:block' : 'block'
+          }`}
+        >
           {currentSubTopic ? (
             <ContentArea
               key={currentSubTopic.id}
               subTopic={currentSubTopic}
               onComplete={handleCompleteTopic}
-              isCompleted={!!progress[selectedSubTopicId]?.completed}
+              isCompleted={Boolean(progress[selectedSubTopicId]?.completed)}
+              onSelectSubTopic={selecionar}
             />
           ) : (
-            <div className="flex-1 flex items-center justify-center text-slate-500 bg-slate-900 border border-slate-800 rounded-3xl h-full">
+            <div className="flex h-full items-center justify-center rounded-3xl border border-slate-800 bg-slate-900 text-slate-500">
               Tópico não encontrado
             </div>
           )}

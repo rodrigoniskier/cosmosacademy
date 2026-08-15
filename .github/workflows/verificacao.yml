@@ -1,0 +1,54 @@
+name: Verificação
+
+# A promessa do portal é que toda fonte citada existe e está no ar, e que todo
+# tópico dado como escrito cumpre a estrutura progressiva. Isso não se garante
+# por inspeção manual: link morre em silêncio e defeito de conteúdo passa pelo
+# compilador. Por isso a checagem roda em todo PR, em todo push para main e uma
+# vez por semana — para pegar o link que morreu desde a última vez.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  verificar:
+    name: Tipos, conteúdo e build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Checagem de tipos
+        run: npm run lint
+      - name: Integridade do conteúdo
+        run: npm run verificar
+      - name: Build de produção
+        run: npm run build
+
+  auditar-links:
+    name: Auditoria de links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Verificar se as fontes citadas estão no ar
+        run: npm run auditar:relatorio
+      - name: Publicar relatório no resumo do job
+        if: always()
+        run: cat relatorio-auditoria.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: relatorio-auditoria
+          path: relatorio-auditoria.md
