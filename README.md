@@ -18,12 +18,12 @@ tópicos apontam.
 | --- | --- |
 | Módulos mapeados | **28** |
 | Subtópicos na grade | **193** |
-| Tópicos escritos | **22** |
-| Exercícios | **66** |
+| Tópicos escritos | **29** |
+| Exercícios | **87** |
 | Fontes livres no registro | **21** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
-(2.1–2.4) e **Termodinâmica Básica** (3.1–3.8). O restante da grade está
+(2.1–2.4), **Termodinâmica Básica** (3.1–3.8) e **Eletromagnetismo** (4.1–4.7). O restante da grade está
 publicado como mapa: o tópico existe, é navegável, e a interface diz
 honestamente que o texto ainda não foi redigido em vez de mostrar uma página
 vazia disfarçada de pronta.
@@ -86,6 +86,27 @@ todo PR, em todo push para `main` e semanalmente. O ambiente de
 desenvolvimento em sandbox só alcança o registry do npm, então localmente todas
 as URLs falham por bloqueio de rede e não por estarem quebradas; use
 `--permitir-falha-local` para inspecionar o relatório sem reprovar.
+
+### Domínios restritos
+
+Alguns acervos recusam acesso automatizado vindo de faixas de IP de nuvem. Na
+primeira execução da auditoria, o `damtp.cam.ac.uk` (as notas de Tong) falhou na
+conexão em todas as 8 URLs, e o `feynmanlectures.caltech.edu` respondeu **403** —
+que é resposta de servidor, não falha de rede: DNS, TCP e TLS completaram e o
+servidor recusou o cliente. As páginas abrem normalmente num navegador.
+
+Da CI é impossível distinguir esse bloqueio de um link morto. Reprovar por causa
+disso teria uma consequência ruim e silenciosa: empurraria o portal a trocar as
+notas de Cambridge e as Feynman Lectures por fontes piores só porque um runner
+não as alcança. Então esses domínios ficam em
+[`src/data/dominios-restritos.json`](src/data/dominios-restritos.json), com
+motivo, evidência e data da última confirmação manual; aparecem em seção própria
+do relatório e **não** reprovam a auditoria.
+
+Eles continuam sendo testados a cada execução — com menos tentativas e prazo mais
+curto, para não gastar minutos de CI esperando um bloqueio conhecido — de modo
+que, no dia em que voltarem a responder, isso apareça no relatório. Qualquer URL
+fora dessa lista que falhe continua quebrando a auditoria.
 
 ## Desenvolvimento
 

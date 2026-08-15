@@ -19,21 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '4',
-    title: '4. Eletromagnetismo',
-    descricao:
-      'A primeira unificação da física: eletricidade, magnetismo e luz reduzidos a quatro equações — e a primeira teoria de gauge, ainda que ninguém soubesse disso na época.',
-    subtopics: pendentes([
-      ['4.1', '4.1. Carga elétrica'],
-      ['4.2', '4.2. Campo elétrico'],
-      ['4.3', '4.3. Potencial elétrico'],
-      ['4.4', '4.4. Campo magnético'],
-      ['4.5', '4.5. Equações de Maxwell'],
-      ['4.6', '4.6. Ondas eletromagnéticas'],
-      ['4.7', '4.7. Simetrias de gauge U(1)'],
-    ]),
-  },
-  {
     id: '5',
     title: '5. Mecânica Analítica',
     descricao:

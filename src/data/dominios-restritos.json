@@ -1,0 +1,17 @@
+{
+  "_leia": "Domínios que recusam acesso automatizado vindo de faixas de IP de nuvem. Da CI é impossível distinguir esse bloqueio de um link morto: nos dois casos a requisição falha. Reprovar a auditoria por causa disso empurraria o portal a trocar fonte primária excelente por fonte pior, então estes domínios aparecem em seção própria do relatório e NÃO reprovam o build. Toda URL fora desta lista que falhe continua quebrando a auditoria — a garantia segue valendo para todo o resto. Cada entrada registra o motivo, a evidência e a data da última confirmação manual de que o material está no ar.",
+  "dominios": [
+    {
+      "dominio": "damtp.cam.ac.uk",
+      "motivo": "Conexão falha nos runners do GitHub (fetch failed, nível de conexão) para todas as URLs do host, em IPv4, após 3 tentativas com backoff. A uniformidade em 8 URLs distintas aponta para condição de host, não para 8 páginas mortas.",
+      "evidencia": "As páginas respondem normalmente a um navegador e aparecem indexadas em buscadores. Confirmado em 2026-08-15 para teaching.html, qft.html, gr.html, statphys.html, cosmo.html, relativity.html, justem.html e aqm.html.",
+      "confirmadoEm": "2026-08-15"
+    },
+    {
+      "dominio": "feynmanlectures.caltech.edu",
+      "motivo": "Responde HTTP 403 a requisições vindas de datacenter. Note que 403 é resposta do servidor, não falha de rede: DNS, TCP e TLS completaram e o servidor recusou o cliente — comportamento típico de proteção contra robôs, e não de link quebrado, que daria 404.",
+      "evidencia": "A edição online autorizada pelo Caltech está no ar e é acessível por navegador. Confirmado em 2026-08-15.",
+      "confirmadoEm": "2026-08-15"
+    }
+  ]
+}

@@ -3,12 +3,14 @@ import { estagio } from '../types';
 import { matematicaFundamental } from './modulos/01-matematica-fundamental';
 import { fisicaIntrodutoria } from './modulos/02-fisica-introdutoria';
 import { termodinamica } from './modulos/03-termodinamica';
+import { eletromagnetismo } from './modulos/04-eletromagnetismo';
 import { modulosPendentes } from './modulos/pendentes';
 
 export const curriculum: Module[] = [
   matematicaFundamental,
   fisicaIntrodutoria,
   termodinamica,
+  eletromagnetismo,
   ...modulosPendentes,
 ];
 
