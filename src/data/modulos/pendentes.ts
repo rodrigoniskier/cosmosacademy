@@ -19,20 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '6',
-    title: '6. Relatividade Especial',
-    descricao:
-      'O que segue de exigir que a velocidade da luz seja a mesma para todos: espaço e tempo deixam de ser absolutos e passam a ser um único objeto.',
-    subtopics: pendentes([
-      ['6.1', '6.1. Postulados de Einstein'],
-      ['6.2', '6.2. Espaço-tempo'],
-      ['6.3', '6.3. Intervalo espaço-temporal'],
-      ['6.4', '6.4. Quadrivetores'],
-      ['6.5', '6.5. Energia relativística'],
-      ['6.6', '6.6. Tensor energia-momento'],
-    ]),
-  },
-  {
     id: '7',
     title: '7. Física Estatística',
     descricao:
