@@ -18,14 +18,15 @@ tópicos apontam.
 | --- | --- |
 | Módulos mapeados | **28** |
 | Subtópicos na grade | **193** |
-| Tópicos escritos | **48** |
-| Exercícios | **144** |
+| Tópicos escritos | **57** |
+| Exercícios | **171** |
 | Fontes livres no registro | **21** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
 (2.1–2.4), **Termodinâmica Básica** (3.1–3.8), **Eletromagnetismo** (4.1–4.7),
-**Mecânica Analítica** (5.1–5.7), **Relatividade Especial** (6.1–6.6) e
-**Física Estatística** (7.1–7.6). O restante da grade está
+**Mecânica Analítica** (5.1–5.7), **Relatividade Especial** (6.1–6.6),
+**Física Estatística** (7.1–7.6) e **Mecânica Quântica** (8.1–8.9). O restante
+da grade está
 publicado como mapa: o tópico existe, é navegável, e a interface diz
 honestamente que o texto ainda não foi redigido em vez de mostrar uma página
 vazia disfarçada de pronta.
