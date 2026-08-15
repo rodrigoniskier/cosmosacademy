@@ -4,6 +4,7 @@ import { matematicaFundamental } from './modulos/01-matematica-fundamental';
 import { fisicaIntrodutoria } from './modulos/02-fisica-introdutoria';
 import { termodinamica } from './modulos/03-termodinamica';
 import { eletromagnetismo } from './modulos/04-eletromagnetismo';
+import { mecanicaAnalitica } from './modulos/05-mecanica-analitica';
 import { modulosPendentes } from './modulos/pendentes';
 
 export const curriculum: Module[] = [
@@ -11,6 +12,7 @@ export const curriculum: Module[] = [
   fisicaIntrodutoria,
   termodinamica,
   eletromagnetismo,
+  mecanicaAnalitica,
   ...modulosPendentes,
 ];
 

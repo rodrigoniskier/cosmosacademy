@@ -44,3 +44,12 @@
 .prose .katex {
   color: rgb(226 232 240); /* slate-200 */
 }
+
+/* Mesmo tratamento das equações: tabela larga rola dentro da própria caixa em
+   vez de dar rolagem horizontal na página inteira. */
+.prose table {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}

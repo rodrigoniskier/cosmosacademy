@@ -14,6 +14,9 @@
 import { curriculum, todosOsSubtopicos, porId } from '../src/data/curriculum';
 import { FONTES } from '../src/data/fontes';
 import { estagio } from '../src/types';
+import pacote from '../package.json' with { type: 'json' };
+
+const GFM_LIGADO = 'remark-gfm' in (pacote.dependencies as Record<string, string>);
 
 const problemas: string[] = [];
 const avisos: string[] = [];
@@ -132,6 +135,12 @@ for (const sub of todosOsSubtopicos) {
           'renderiza como inline; ponha os "$$" em linhas separadas',
       );
     }
+  }
+
+  // Markdown básico não conhece tabelas: sem o remark-gfm ligado, uma tabela
+  // vira uma parede de barras verticais na tela, sem erro nem aviso.
+  if (/^\s*\|.*\|\s*$/m.test(sub.content) && !GFM_LIGADO) {
+    erro(sub.id, 'usa tabela em Markdown, mas o remark-gfm não está nas dependências');
   }
 }
 

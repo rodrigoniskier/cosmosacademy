@@ -19,21 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '5',
-    title: '5. Mecânica Analítica',
-    descricao:
-      'A reformulação de Lagrange e Hamilton: em vez de forças, princípios variacionais — a linguagem em que toda a física posterior foi escrita.',
-    subtopics: pendentes([
-      ['5.1', '5.1. Princípio da mínima ação'],
-      ['5.2', '5.2. Lagrangiana'],
-      ['5.3', '5.3. Equações de Euler-Lagrange'],
-      ['5.4', '5.4. Hamiltoniana'],
-      ['5.5', '5.5. Espaço de fases'],
-      ['5.6', '5.6. Simetrias e conservação'],
-      ['5.7', '5.7. Teorema de Noether'],
-    ]),
-  },
-  {
     id: '6',
     title: '6. Relatividade Especial',
     descricao:
