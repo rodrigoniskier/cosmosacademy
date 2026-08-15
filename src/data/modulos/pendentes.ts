@@ -19,20 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '7',
-    title: '7. Física Estatística',
-    descricao:
-      'Como a termodinâmica emerge da contagem de microestados, e por que sistemas com muitas partículas exibem comportamento coletivo que nenhuma delas tem.',
-    subtopics: pendentes([
-      ['7.1', '7.1. Microestados'],
-      ['7.2', '7.2. Macroestados'],
-      ['7.3', '7.3. Distribuição de Boltzmann'],
-      ['7.4', '7.4. Entropia estatística'],
-      ['7.5', '7.5. Flutuações térmicas'],
-      ['7.6', '7.6. Transições de fase'],
-    ]),
-  },
-  {
     id: '8',
     title: '8. Mecânica Quântica',
     descricao:
