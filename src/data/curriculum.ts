@@ -6,6 +6,7 @@ import { termodinamica } from './modulos/03-termodinamica';
 import { eletromagnetismo } from './modulos/04-eletromagnetismo';
 import { mecanicaAnalitica } from './modulos/05-mecanica-analitica';
 import { relatividadeEspecial } from './modulos/06-relatividade-especial';
+import { fisicaEstatistica } from './modulos/07-fisica-estatistica';
 import { modulosPendentes } from './modulos/pendentes';
 
 export const curriculum: Module[] = [
@@ -15,6 +16,7 @@ export const curriculum: Module[] = [
   eletromagnetismo,
   mecanicaAnalitica,
   relatividadeEspecial,
+  fisicaEstatistica,
   ...modulosPendentes,
 ];
 
