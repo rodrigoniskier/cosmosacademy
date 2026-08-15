@@ -18,12 +18,13 @@ tópicos apontam.
 | --- | --- |
 | Módulos mapeados | **28** |
 | Subtópicos na grade | **193** |
-| Tópicos escritos | **29** |
-| Exercícios | **87** |
+| Tópicos escritos | **36** |
+| Exercícios | **108** |
 | Fontes livres no registro | **21** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
-(2.1–2.4), **Termodinâmica Básica** (3.1–3.8) e **Eletromagnetismo** (4.1–4.7). O restante da grade está
+(2.1–2.4), **Termodinâmica Básica** (3.1–3.8), **Eletromagnetismo** (4.1–4.7) e
+**Mecânica Analítica** (5.1–5.7). O restante da grade está
 publicado como mapa: o tópico existe, é navegável, e a interface diz
 honestamente que o texto ainda não foi redigido em vez de mostrar uma página
 vazia disfarçada de pronta.
@@ -50,7 +51,7 @@ links morrem, e um material de estudo não pode ser construído sobre eles.
 ## Matemática
 
 O conteúdo é Markdown com LaTeX, renderizado por KaTeX com as fontes
-empacotadas no bundle (sem CDN). Duas armadilhas já custaram caro e hoje têm
+empacotadas no bundle (sem CDN). Três armadilhas já custaram caro e hoje têm
 teste que as barra:
 
 - **`String.raw` é obrigatório.** Em template literal comum, `\f` de `\frac` é
@@ -61,6 +62,9 @@ teste que as barra:
 - **Equação em display precisa dos `$$` em linhas separadas.** `$$x$$` numa
   linha só é aceito pelo remark-math, mas renderiza como matemática *inline*: a
   fórmula em destaque acaba espremida no meio do parágrafo.
+- **Tabela exige `remark-gfm`.** Markdown básico não conhece tabelas: sem o
+  plugin, o dicionário simetria–conservação do tópico 5.7 apareceria como uma
+  parede de barras verticais. Sem erro, sem aviso, só ilegível.
 
 ## Verificação
 
