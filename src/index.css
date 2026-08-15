@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
+@import "katex/dist/katex.min.css";
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -22,4 +23,24 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #475569; /* slate-600 */
+}
+
+/*
+ * Equação larga não pode empurrar a página.
+ *
+ * Um bloco como o da gaussiana ou o das relações de Maxwell estoura a medida
+ * do texto em telas estreitas. Sem isto, o corpo inteiro ganha rolagem
+ * horizontal e a leitura quebra; com isto, só a equação rola, dentro da
+ * própria caixa.
+ */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+
+/* O KaTeX herda a cor do texto; nos blocos destacados isso deixaria a fórmula
+   cinza-escura sobre fundo escuro. */
+.prose .katex {
+  color: rgb(226 232 240); /* slate-200 */
 }
