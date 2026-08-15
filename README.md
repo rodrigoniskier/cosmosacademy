@@ -18,15 +18,15 @@ tópicos apontam.
 | --- | --- |
 | Módulos mapeados | **28** |
 | Subtópicos na grade | **193** |
-| Tópicos escritos | **57** |
-| Exercícios | **171** |
+| Tópicos escritos | **65** |
+| Exercícios | **195** |
 | Fontes livres no registro | **21** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
 (2.1–2.4), **Termodinâmica Básica** (3.1–3.8), **Eletromagnetismo** (4.1–4.7),
 **Mecânica Analítica** (5.1–5.7), **Relatividade Especial** (6.1–6.6),
-**Física Estatística** (7.1–7.6) e **Mecânica Quântica** (8.1–8.9). O restante
-da grade está
+**Física Estatística** (7.1–7.6), **Mecânica Quântica** (8.1–8.9) e **Teoria
+Quântica de Campos** (9.1–9.8). O restante da grade está
 publicado como mapa: o tópico existe, é navegável, e a interface diz
 honestamente que o texto ainda não foi redigido em vez de mostrar uma página
 vazia disfarçada de pronta.
@@ -47,7 +47,7 @@ que não tenha as quatro seções reprova a CI.
 
 Os tópicos se apoiam uns nos outros o tempo todo, e essas remissões são
 navegáveis: escrever "o teorema de Noether do módulo 5.7" ou "como se verá no
-módulo 13" gera um link clicável. São 65 referências cruzadas ligando 37 dos
+módulo 13" gera um link clicável. São mais de 70 referências cruzadas ligando a maioria dos
 tópicos escritos — sem isso, cada promessa feita no texto era um beco sem saída.
 
 Toda fonte é um objeto tipado com autor, ano, veículo, idioma, tipo e nível de
