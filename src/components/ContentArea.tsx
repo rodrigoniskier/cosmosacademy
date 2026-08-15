@@ -117,7 +117,7 @@ export default function ContentArea({
                          prose-p:text-slate-300 prose-strong:text-cyan-300 prose-a:text-cyan-400
                          prose-li:text-slate-300"
             >
-              <Markdown>{subTopic.content}</Markdown>
+              <Markdown aoNavegar={onSelectSubTopic}>{subTopic.content}</Markdown>
             </div>
           ) : (
             <div className="rounded-2xl border border-dashed border-slate-700 bg-slate-950/60 p-6">

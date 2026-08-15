@@ -45,6 +45,11 @@ entende; depois do problema, ela é a resposta de uma pergunta que o leitor já
 tem. A estrutura é verificada automaticamente: um tópico marcado como escrito
 que não tenha as quatro seções reprova a CI.
 
+Os tópicos se apoiam uns nos outros o tempo todo, e essas remissões são
+navegáveis: escrever "o teorema de Noether do módulo 5.7" ou "como se verá no
+módulo 13" gera um link clicável. São 65 referências cruzadas ligando 37 dos
+tópicos escritos — sem isso, cada promessa feita no texto era um beco sem saída.
+
 Toda fonte é um objeto tipado com autor, ano, veículo, idioma, tipo e nível de
 acesso — e sempre com link para o original. O portal não hospeda cópia de nada,
 e não aponta para cópia não autorizada: além de injusto com quem publica, esses
