@@ -8,6 +8,7 @@ import { mecanicaAnalitica } from './modulos/05-mecanica-analitica';
 import { relatividadeEspecial } from './modulos/06-relatividade-especial';
 import { fisicaEstatistica } from './modulos/07-fisica-estatistica';
 import { mecanicaQuantica } from './modulos/08-mecanica-quantica';
+import { teoriaQuanticaDeCampos } from './modulos/09-teoria-quantica-de-campos';
 import { modulosPendentes } from './modulos/pendentes';
 
 export const curriculum: Module[] = [
@@ -19,6 +20,7 @@ export const curriculum: Module[] = [
   relatividadeEspecial,
   fisicaEstatistica,
   mecanicaQuantica,
+  teoriaQuanticaDeCampos,
   ...modulosPendentes,
 ];
 

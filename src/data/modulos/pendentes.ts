@@ -19,22 +19,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 
 export const modulosPendentes: Module[] = [
   {
-    id: '9',
-    title: '9. Teoria Quântica de Campos (TQC)',
-    descricao:
-      'A síntese de quântica com relatividade restrita: partículas deixam de ser objetos e passam a ser excitações de campos que preenchem o espaço.',
-    subtopics: pendentes([
-      ['9.1', '9.1. Campos clássicos'],
-      ['9.2', '9.2. Campos escalares'],
-      ['9.3', '9.3. Campos vetoriais'],
-      ['9.4', '9.4. Quantização de campos'],
-      ['9.5', '9.5. Partículas como excitações de campos'],
-      ['9.6', '9.6. Diagramas de Feynman'],
-      ['9.7', '9.7. Seções de choque'],
-      ['9.8', '9.8. Taxas de decaimento'],
-    ]),
-  },
-  {
     id: '10',
     title: '10. Simetrias em Física',
     descricao:
