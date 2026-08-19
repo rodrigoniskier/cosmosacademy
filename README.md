@@ -18,15 +18,15 @@ tópicos apontam.
 | --- | --- |
 | Módulos mapeados | **28** |
 | Subtópicos na grade | **193** |
-| Tópicos escritos | **65** |
-| Exercícios | **195** |
-| Fontes livres no registro | **21** |
+| Tópicos escritos | **72** |
+| Exercícios | **216** |
+| Fontes livres no registro | **26** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
 (2.1–2.4), **Termodinâmica Básica** (3.1–3.8), **Eletromagnetismo** (4.1–4.7),
 **Mecânica Analítica** (5.1–5.7), **Relatividade Especial** (6.1–6.6),
-**Física Estatística** (7.1–7.6), **Mecânica Quântica** (8.1–8.9) e **Teoria
-Quântica de Campos** (9.1–9.8). O restante da grade está
+**Física Estatística** (7.1–7.6), **Mecânica Quântica** (8.1–8.9), **Teoria
+Quântica de Campos** (9.1–9.8) e **Simetrias em Física** (10.1–10.7). O restante da grade está
 publicado como mapa: o tópico existe, é navegável, e a interface diz
 honestamente que o texto ainda não foi redigido em vez de mostrar uma página
 vazia disfarçada de pronta.
@@ -47,8 +47,11 @@ que não tenha as quatro seções reprova a CI.
 
 Os tópicos se apoiam uns nos outros o tempo todo, e essas remissões são
 navegáveis: escrever "o teorema de Noether do módulo 5.7" ou "como se verá no
-módulo 13" gera um link clicável. São mais de 70 referências cruzadas ligando a maioria dos
-tópicos escritos — sem isso, cada promessa feita no texto era um beco sem saída.
+módulo 13" gera um link clicável. E não só com a palavra à frente: "a hamiltoniana
+de 5.4" e "como se viu em 4.7" — a forma mais comum de citar no corpo do texto —
+também viram link, desde que o número resolva para um tópico que existe. São 198
+referências navegáveis ligando os tópicos escritos; sem isso, cada promessa feita
+no texto era um beco sem saída.
 
 Toda fonte é um objeto tipado com autor, ano, veículo, idioma, tipo e nível de
 acesso — e sempre com link para o original. O portal não hospeda cópia de nada,
@@ -58,7 +61,7 @@ links morrem, e um material de estudo não pode ser construído sobre eles.
 ## Matemática
 
 O conteúdo é Markdown com LaTeX, renderizado por KaTeX com as fontes
-empacotadas no bundle (sem CDN). Três armadilhas já custaram caro e hoje têm
+empacotadas no bundle (sem CDN). Quatro armadilhas já custaram caro e hoje têm
 teste que as barra:
 
 - **`String.raw` é obrigatório.** Em template literal comum, `\f` de `\frac` é
@@ -72,6 +75,11 @@ teste que as barra:
 - **Tabela exige `remark-gfm`.** Markdown básico não conhece tabelas: sem o
   plugin, o dicionário simetria–conservação do tópico 5.7 apareceria como uma
   parede de barras verticais. Sem erro, sem aviso, só ilegível.
+- **Comando inexistente só falha na tela.** `$\naoexiste{x}$` atravessa o
+  TypeScript e o build inteiros e quebra na hora de desenhar, no navegador do
+  leitor. Como o KaTeX já é dependência do portal, cada fórmula é compilada
+  durante a verificação: hoje são 1.155 expressões, e a falha aparece na CI e
+  não na página.
 
 ## Verificação
 
@@ -85,7 +93,8 @@ npm run checar     # lint + verificar
 `npm run verificar` confere, entre outras coisas: ids duplicados,
 `correctAnswerIndex` fora do intervalo de alternativas, alternativas repetidas,
 pré-requisitos e fontes apontando para ids inexistentes, caracteres de controle
-no texto, `$` desbalanceado e as quatro seções obrigatórias.
+no texto, `$` desbalanceado, fórmula que o KaTeX não compila e as quatro
+seções obrigatórias.
 
 Cada regra existe porque a falha correspondente já aconteceu neste repositório
 ou é barata de prevenir. **Compilar não é funcionar**: todos os defeitos
