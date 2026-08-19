@@ -12,7 +12,7 @@ export const simetrias: Module = {
       objetivo:
         'Isolar a estrutura comum a toda operação de simetria — e entender por que abstraí-la é o que a torna útil em física.',
       prerequisitos: ['5.6', '1.6'],
-      fontes: ['rbef-teoria-de-grupos', 'woit-grupos', 'tong-teaching'],
+      fontes: ['uff-grupos', 'woit-grupos', 'tong-teaching'],
       content: String.raw`
 ### O problema
 
@@ -45,7 +45,7 @@ Um grupo em que $a\cdot b = b\cdot a$ para todo par chama-se **abeliano**; caso 
 
 **Exemplos que já apareceram sem o nome.** Os inteiros com a soma formam um grupo: o neutro é 0 e o inverso de $n$ é $-n$. As fases $e^{i\alpha}$ do tópico 4.7 formam um grupo — o produto de duas fases é uma fase, e é o grupo $U(1)$. E as transformações de Lorentz do módulo 6 formam um grupo: compor dois boosts dá uma transformação de Lorentz, o inverso do boost de velocidade $v$ é o de $-v$, e o neutro é $v = 0$.
 
-Esse último caso merece uma frase a mais, porque contém uma surpresa. O produto de dois boosts em direções **diferentes** não é um boost puro: sobra uma rotação. O fechamento do grupo obriga a incluí-la, e ela é medível — é a precessão de Thomas, que corrige por um fator 2 o acoplamento spin-órbita nos níveis atômicos. Fechamento não é formalidade contábil; ele prevê fenômeno.
+Esse último caso merece uma frase a mais, porque contém uma surpresa. O produto de dois boosts em direções **diferentes** não é um boost puro: sobra uma rotação. O fechamento do grupo obriga a incluí-la, e ela é medível — é a precessão de Thomas, que corta pela metade o acoplamento spin-órbita que o cálculo ingênuo prevê nos níveis atômicos. Fechamento não é formalidade contábil; ele prevê fenômeno.
 
 **Por que abstrair.** As seis simetrias do triângulo equilátero e as seis permutações de três objetos são, como grupos, **o mesmo grupo**: cada simetria permuta os vértices, e toda permutação de vértices é realizada por alguma simetria. Existe uma correspondência que preserva a operação — um isomorfismo —, e isso significa que qualquer coisa demonstrada sobre um vale automaticamente sobre o outro.
 
@@ -88,7 +88,7 @@ Um grupo é um conjunto munido de uma operação associativa e fechada, com elem
           ],
           correctAnswerIndex: 1,
           explanation:
-            'O grupo é fechado justamente porque a rotação extra faz parte dele. E ela aparece no espectro atômico, corrigindo por um fator 2 o acoplamento spin-órbita.',
+            'O grupo é fechado justamente porque a rotação extra faz parte dele. E ela aparece no espectro atômico, cortando pela metade o acoplamento spin-órbita que o cálculo ingênuo prevê.',
         },
         {
           id: 'ex-10.1.3',
@@ -113,7 +113,7 @@ Um grupo é um conjunto munido de uma operação associativa e fechada, com elem
       objetivo:
         'Entender por que só simetrias contínuas geram leis de conservação — e aprender a contar os parâmetros de um grupo.',
       prerequisitos: ['10.1', '6.2'],
-      fontes: ['woit-grupos', 'tong-qft', 'rbef-teoria-de-grupos'],
+      fontes: ['woit-grupos', 'tong-qft', 'uff-grupos'],
       content: String.raw`
 ### O problema
 
@@ -152,7 +152,7 @@ Uma simetria discreta não tem vizinhança da identidade. Não existe "meia refl
 
 A consequência é dupla. A contagem de parâmetros descreve só o pedaço conexo. E $P$ e $T$ ficam como simetrias discretas — que a interação fraca, aliás, **viola**: o experimento de Wu com cobalto-60, em 1957, mostrou que a natureza distingue esquerda de direita, assunto do módulo 12.
 
-**Compacto ou não.** O parâmetro de uma rotação é limitado: dar volta completa retorna ao início. O de um boost não é — a rapidez cresce sem limite conforme a velocidade se aproxima de $c$. Diz-se que $SO(3)$ é **compacto** e o grupo de Lorentz não é, e a diferença tem consequência: grupos compactos admitem representações unitárias de dimensão finita, e grupos não compactos não. É por isso que uma teoria quântica relativística não cabe num espaço de estados de dimensão finita — e uma das razões pelas quais ela precisa ser uma teoria de **campos**, como o módulo 9 construiu.
+**Compacto ou não.** O parâmetro de uma rotação é limitado: dar volta completa retorna ao início. O de um boost não é — a rapidez cresce sem limite conforme a velocidade se aproxima de $c$. Diz-se que $SO(3)$ é **compacto** e o grupo de Lorentz não é, e a diferença tem consequência: grupos compactos admitem representações unitárias de dimensão finita, e grupos não compactos não admitem nenhuma além da trivial. É por isso que uma teoria quântica relativística não cabe num espaço de estados de dimensão finita — e uma das razões pelas quais ela precisa ser uma teoria de **campos**, como o módulo 9 construiu.
 
 ### A declaração
 
@@ -427,7 +427,7 @@ A álgebra de Lie de um grupo é o espaço dos geradores das transformações in
       objetivo:
         'Ligar o grupo abstrato aos estados e campos concretos — e descobrir o que fixa o tamanho das famílias de partículas.',
       prerequisitos: ['10.4', '9.5'],
-      fontes: ['woit-grupos', 'rbef-teoria-de-grupos', 'tong-qft'],
+      fontes: ['woit-grupos', 'usp-grupos-fisica', 'tong-qft'],
       content: String.raw`
 ### O problema
 
@@ -546,7 +546,7 @@ Uma representação é a realização de um grupo abstrato como operadores linea
       objetivo:
         'Distinguir simetrias do espaço-tempo das internas, e as exatas das aproximadas, acidentais e quebradas — que é o que separa usar simetria de acreditar nela.',
       prerequisitos: ['10.5', '5.7', '9.1'],
-      fontes: ['tong-qft', 'ocw-8-323', 'rbef-teoria-de-grupos'],
+      fontes: ['tong-qft', 'ocw-8-323', 'usp-grupos-fisica'],
       content: String.raw`
 ### O problema
 
@@ -673,7 +673,7 @@ Aqui a contagem de 10.3 entrega o resultado físico. O número de campos de gaug
 | Grupo | Dimensão | Campos de gauge |
 | --- | --- | --- |
 | $U(1)$ | 1 | o fóton |
-| $SU(2)$ | 3 | três campos, que só depois da mistura eletrofraca aparecem como $W^+$, $W^-$ e $Z$ |
+| $SU(2)$ | 3 | três campos; dois se combinam nos $W^\pm$, e o terceiro se mistura com o campo de $U(1)$ para dar o $Z$ e o fóton |
 | $SU(3)$ | 8 | os oito glúons |
 
 **A novidade não abeliana.** Se o grupo é abeliano, os geradores comutam e nada de novo acontece — é o caso de 4.7. Se não é, o tensor de campo ganha um termo com o comutador dos campos, e esse termo não é decorativo: ele significa que **o campo de gauge carrega a carga da interação que ele medeia**.

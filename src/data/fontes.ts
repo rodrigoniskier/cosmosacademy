@@ -279,17 +279,29 @@ export const FONTES: Record<string, Fonte> = {
   },
 
   // ─── Artigos e notas de referência ─────────────────────────────────────
-  'rbef-teoria-de-grupos': {
-    id: 'rbef-teoria-de-grupos',
-    autor: 'J. Furtado',
+  'uff-grupos': {
+    id: 'uff-grupos',
+    autor: 'Thiago Fassarella',
     ano: '2021',
-    titulo: 'Teoria de Grupos e o Papel das Simetrias em Física',
-    publicacao: 'Revista Brasileira de Ensino de Física, v. 43',
-    url: 'https://www.scielo.br/j/rbef/a/tx6ZpVfzWmbwNgKFLGznmfJ/?lang=pt',
+    titulo: 'Notas de Curso: Teoria dos Grupos',
+    publicacao: 'Universidade Federal Fluminense',
+    url: 'https://www.professores.uff.br/thiagofassarella/wp-content/uploads/sites/150/2021/03/Notas-Grupos-Completo.pdf',
     idioma: 'pt',
-    tipo: 'artigo',
+    tipo: 'notas-de-aula',
     acesso: 'livre',
-    nota: 'Em português e de acesso aberto. Parte da invariância de uma grandeza para só então introduzir o grupo de simetria — a mesma ordem adotada aqui.',
+    nota: 'Curso de teoria dos grupos em português, publicado pelo autor na página da UFF. É onde ver com demonstração o que os tópicos 10.1 e 10.2 usam.',
+  },
+  'usp-grupos-fisica': {
+    id: 'usp-grupos-fisica',
+    autor: 'Lucy Assali',
+    ano: '2023',
+    titulo: 'Teoria de grupos aplicada a moléculas e sólidos',
+    publicacao: 'Instituto de Física, Universidade de São Paulo',
+    url: 'https://portal.if.usp.br/scam/sites/portal.if.usp.br.scam/files/Aula1_TG_Lucy_Assali_2023.pdf',
+    idioma: 'pt',
+    tipo: 'notas-de-aula',
+    acesso: 'livre',
+    nota: 'Aula de abertura de um curso do IF-USP, em português, que vai de grupo a representação com a aplicação física à vista.',
   },
   'carroll-gr': {
     id: 'carroll-gr',

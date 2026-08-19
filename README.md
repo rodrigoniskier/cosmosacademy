@@ -20,7 +20,7 @@ tópicos apontam.
 | Subtópicos na grade | **193** |
 | Tópicos escritos | **72** |
 | Exercícios | **216** |
-| Fontes livres no registro | **25** |
+| Fontes livres no registro | **26** |
 
 Escrito até aqui: **Matemática Fundamental** (1.1–1.10), **Física Introdutória**
 (2.1–2.4), **Termodinâmica Básica** (3.1–3.8), **Eletromagnetismo** (4.1–4.7),
