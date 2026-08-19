@@ -11,6 +11,7 @@
  * barata de prevenir. O objetivo é que a próxima só possa entrar por cima de
  * uma checagem que falha.
  */
+import katex from 'katex';
 import { curriculum, todosOsSubtopicos, porId } from '../src/data/curriculum';
 import { FONTES } from '../src/data/fontes';
 import { estagio } from '../src/types';
@@ -96,6 +97,17 @@ for (const sub of todosOsSubtopicos) {
   }
 }
 
+/** Blocos `$$` com os delimitadores em linhas próprias — os únicos que o
+ *  remark-math trata como display de verdade. */
+function formulasEmDisplay(texto: string): string[] {
+  return [...texto.matchAll(/^\$\$$([\s\S]*?)^\$\$$/gm)].map((m) => m[1]);
+}
+
+/** Matemática inline: `$...$` sem quebra de linha e sem colar em `$$`. */
+function formulasInline(texto: string): string[] {
+  return [...texto.matchAll(/(?<!\$)\$([^$\n]+)\$(?!\$)/g)].map((m) => m[1]);
+}
+
 // ── Exigências de um tópico dado como escrito ───────────────────────────
 // A estrutura progressiva é a promessa editorial do portal: partir do
 // problema, construir, declarar e só então apontar onde se erra. Se a seção
@@ -141,6 +153,32 @@ for (const sub of todosOsSubtopicos) {
   // vira uma parede de barras verticais na tela, sem erro nem aviso.
   if (/^\s*\|.*\|\s*$/m.test(sub.content) && !GFM_LIGADO) {
     erro(sub.id, 'usa tabela em Markdown, mas o remark-gfm não está nas dependências');
+  }
+
+  // Cada fórmula é compilada pelo mesmo KaTeX que roda no navegador.
+  //
+  // As três regras acima pegam delimitador errado; nenhuma delas pega comando
+  // inexistente. E `$\naoexiste{x}$` atravessa o TypeScript, atravessa o build
+  // e só falha na hora de desenhar — onde o leitor recebe um bloco vermelho de
+  // erro no meio do parágrafo, ou, pior, um trecho silenciosamente mudo. Como o
+  // katex já é dependência do portal, compilar aqui custa milissegundos e move
+  // a falha do navegador do leitor para a CI.
+  for (const [modo, expressoes] of [
+    ['display', formulasEmDisplay(sub.content)],
+    ['inline', formulasInline(sub.content)],
+  ] as const) {
+    for (const expressao of expressoes) {
+      try {
+        katex.renderToString(expressao, {
+          displayMode: modo === 'display',
+          throwOnError: true,
+          strict: 'error',
+        });
+      } catch (e) {
+        const motivo = (e instanceof Error ? e.message : String(e)).split('\n')[0];
+        erro(sub.id, `fórmula ${modo} não compila no KaTeX: ${motivo}`);
+      }
+    }
   }
 }
 

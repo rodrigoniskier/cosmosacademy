@@ -1,7 +1,7 @@
 import type { Module, SubTopic } from '../../types';
 
 /**
- * Módulos 4 a 28: a grade completa, ainda por escrever.
+ * Módulos 11 a 28: a grade completa, ainda por escrever.
  *
  * Eles ficam aqui com `content` vazio de propósito. Antes, cada um desses
  * tópicos trazia a string "Conteúdo em desenvolvimento...", o que produzia uma
@@ -18,21 +18,6 @@ function pendentes(pares: [string, string][]): SubTopic[] {
 }
 
 export const modulosPendentes: Module[] = [
-  {
-    id: '10',
-    title: '10. Simetrias em Física',
-    descricao:
-      'Teoria de grupos como gramática das leis físicas: o que se conserva, o que se transforma, e por que as partículas vêm nas famílias que vêm.',
-    subtopics: pendentes([
-      ['10.1', '10.1. Grupos'],
-      ['10.2', '10.2. Grupos contínuos'],
-      ['10.3', '10.3. Grupos de Lie'],
-      ['10.4', '10.4. Álgebras de Lie'],
-      ['10.5', '10.5. Representações de grupos'],
-      ['10.6', '10.6. Simetrias globais'],
-      ['10.7', '10.7. Simetrias locais (gauge)'],
-    ]),
-  },
   {
     id: '11',
     title: '11. Teorias de Gauge',
